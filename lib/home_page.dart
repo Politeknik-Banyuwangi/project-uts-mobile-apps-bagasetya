@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
         body: const TabBarView(
           children: [
             Camera(),
-            Chat(),
+            Chats(),
             Status(),
             Calls(),
           ],
