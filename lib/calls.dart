@@ -36,7 +36,14 @@ class Calls extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            getCall("Sasuke", "Just now", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
+            getCall("Sasuke", "Today 09.45", "09.00"),
             // Masukkan Coding disini jangan rubah lainnya
             //
             //
