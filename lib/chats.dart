@@ -7,6 +7,7 @@ class Chats extends StatelessWidget {
   Widget getChat(
     title,
     subTitle,
+    time,
   ) {
     return ListTile(
       leading: CircleAvatar(
@@ -34,7 +35,7 @@ class Chats extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            getChat("Sasuke", "Just now"),
+            getChat("Sasuke", "Just now", "09.00"),
           ],
         ),
       ),
