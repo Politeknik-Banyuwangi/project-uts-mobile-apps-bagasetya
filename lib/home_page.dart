@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           backgroundColor: Colors.teal[800],
           title: const Text(
-            "WhatsApp Apps",
+            "WhatsApps",
             style: TextStyle(fontWeight: FontWeight.w500),
           ),
           actions: [
@@ -103,7 +103,7 @@ class _CameraState extends State<Camera> {
     return const Scaffold(
       body: Center(
         child: Text(
-          "Your Name + Nim",
+          "Bagas Setya Atmawijaya ( 362055401100 )",
           style: TextStyle(color: Colors.teal, fontWeight: FontWeight.bold, fontSize: 30),
         ),
       ),
