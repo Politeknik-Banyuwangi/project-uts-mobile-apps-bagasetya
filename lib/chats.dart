@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class Chats extends StatelessWidget {
   const Chats({Key? key}) : super(key: key);
 
-  Widget getChat(title, subTitle, TimeOfDay) {
+  Widget getChat(
+    title,
+    subTitle,
+  ) {
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: NetworkImage("https://i0.wp.com/www.cirebonkota.go.id/wp-content/uploads/2018/05/jokowi.jpg"),
