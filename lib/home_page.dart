@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
         body: const TabBarView(
           children: [
             Camera(),
-            Chats(),
+            Chat(),
             Status(),
             Calls(),
           ],
@@ -103,7 +103,7 @@ class _CameraState extends State<Camera> {
     return const Scaffold(
       body: Center(
         child: Text(
-          "Bagas Setya Atmawijaya ( 362055401100 )",
+          "Bagas Setya Atmawijaya ( 362055401100)",
           style: TextStyle(color: Colors.teal, fontWeight: FontWeight.bold, fontSize: 30),
         ),
       ),

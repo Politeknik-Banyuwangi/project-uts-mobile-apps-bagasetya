@@ -1,48 +1,80 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Chats extends StatelessWidget {
-  const Chats({Key? key}) : super(key: key);
+class Chat extends StatelessWidget {
+  final String? chatMessage;
+  final String? chatTitle;
+  final Color? seenStatusColor;
+  final String? imageUrl;
 
-  Widget getStory(title, subTitle) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage("https://i0.wp.com/www.cirebonkota.go.id/wp-content/uploads/2018/05/jokowi.jpg"),
-        radius: 30,
-      ),
-      title: Text(
-        title,
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
-      ),
-      subtitle: Text(subTitle),
-    );
-  }
+  const Chat({
+    Key? key,
+    this.chatMessage,
+    this.chatTitle,
+    this.seenStatusColor,
+    this.imageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (_) {
-          _.disallowGlow();
-          return true;
-        },
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            getStory("Sasuke", "Just now"),
-          ],
+    return Row(
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundImage: NetworkImage(imageUrl!),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        onPressed: () {},
-        child: Icon(
-          Icons.chat_bubble,
-          color: Colors.white,
+        Expanded(
+          child: ListTile(
+              title: Text('$chatTitle', style: const TextStyle(fontWeight: FontWeight.w600)),
+              subtitle: Row(children: [
+                Icon(
+                  seenStatusColor == Colors.blue ? Icons.done_all : Icons.done,
+                  size: 15,
+                  color: seenStatusColor,
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 6.0),
+                    child: Text(
+                      '$chatMessage',
+                      style: const TextStyle(overflow: TextOverflow.ellipsis),
+                    ),
+                  ),
+                ),
+              ]),
+              trailing: Column(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'Yesterday',
+                    ),
+                  ),
+                ],
+              )),
         ),
-      ),
+      ],
     );
   }
+}
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListView(
+        children: const [
+          Chat(chatTitle: "Arya Stark", chatMessage: 'I wish GoT had better ending', seenStatusColor: Colors.blue, imageUrl: 'https://static-koimoi.akamaized.net/wp-content/new-galleries/2020/09/maisie-williams-aka-arya-stark-of-game-of-thrones-someone-told-me-in-season-three-that-i-was-going-to-kill-the-night-king001.jpg'),
+          Chat(chatTitle: "Robb Stark", chatMessage: 'Did you check Maisie\'s latest post?', seenStatusColor: Colors.grey, imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDXCC-UB67rk0HtbmrDvVsIGvnPfTAMc_tSg&usqp=CAU'),
+          Chat(chatTitle: "Jaqen H'ghar", chatMessage: 'Valar Morghulis', seenStatusColor: Colors.grey, imageUrl: 'https://static3.srcdn.com/wordpress/wp-content/uploads/2017/06/Jaqen-Hghar-Game-of-Thrones.jpg'),
+          Chat(chatTitle: "Sansa Stark", chatMessage: 'The North Remembers', seenStatusColor: Colors.blue, imageUrl: 'https://i.insider.com/5ce420e193a15232821d3084?width=700'),
+          Chat(chatTitle: "Jon Snow", chatMessage: 'Stick em\' with the pointy end', seenStatusColor: Colors.grey, imageUrl: 'https://i.insider.com/5cb3c8e96afbee373d4f2b62?width=700'),
+          Chat(chatTitle: "Arya Stark", chatMessage: 'I wish GoT had better ending', seenStatusColor: Colors.blue, imageUrl: 'https://static-koimoi.akamaized.net/wp-content/new-galleries/2020/09/maisie-williams-aka-arya-stark-of-game-of-thrones-someone-told-me-in-season-three-that-i-was-going-to-kill-the-night-king001.jpg'),
+          Chat(chatTitle: "Robb Stark", chatMessage: 'Did you check Maisie\'s latest post?', seenStatusColor: Colors.blue, imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDXCC-UB67rk0HtbmrDvVsIGvnPfTAMc_tSg&usqp=CAU'),
+          Chat(chatTitle: "Jon Snow", chatMessage: 'Stick em\' with the pointy end', seenStatusColor: Colors.blue, imageUrl: 'https://i.insider.com/5cb3c8e96afbee373d4f2b62?width=700'),
+        ],
+      ),
+    ),
+  );
 }
