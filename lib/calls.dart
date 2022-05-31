@@ -33,6 +33,10 @@ class Calls extends StatelessWidget {
               height: 10,
             ),
             getCalls("Sasuke", "Today 08.13"),
+            getCalls("Sasuke", "Today 08.13"),
+            getCalls("Sasuke", "Today 08.13"),
+            getCalls("Sasuke", "Today 08.13"),
+            getCalls("Sasuke", "Today 08.13"),
             // Masukkan Coding disini jangan rubah lainnya
             //
             //
